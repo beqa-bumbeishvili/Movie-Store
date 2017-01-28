@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace movieStore
+namespace MovieProject
 {
     public class FilterConfig
     {

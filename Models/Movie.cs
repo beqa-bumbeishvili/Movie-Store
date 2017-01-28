@@ -1,4 +1,4 @@
-namespace movieStore.Models
+namespace MovieProject.Models
 {
     using System;
     using System.Collections.Generic;
