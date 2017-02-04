@@ -12,6 +12,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Director.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Director.Name)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
 
@@ -20,19 +28,51 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Director)
+            @Html.DisplayNameFor(model => model.Duration)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Director)
+            @Html.DisplayFor(model => model.Duration)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
+            @Html.DisplayNameFor(model => model.RatingIMDB)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ReleaseDate)
+            @Html.DisplayFor(model => model.RatingIMDB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trailer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trailer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Budget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Budget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Income)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Income)
         </dd>
 
     </dl>

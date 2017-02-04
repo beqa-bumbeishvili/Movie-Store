@@ -12,12 +12,13 @@ namespace MovieProject.Controllers
 {
     public class MoviesController : Controller
     {
-        private MovisDBModel db = new MovisDBModel();
+        private MovieDBModel db = new MovieDBModel();
 
         // GET: Movies
         public ActionResult Index()
         {
-            return View(db.Movies.ToList());
+            var movies = db.Movies.Include(m => m.Director);
+            return View(movies.ToList());
         }
 
         // GET: Movies/Details/5
@@ -38,6 +39,7 @@ namespace MovieProject.Controllers
         // GET: Movies/Create
         public ActionResult Create()
         {
+            ViewBag.DirectorID = new SelectList(db.Directors, "ID", "Name");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace MovieProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Director,ReleaseDate")] Movie movie)
+        public ActionResult Create([Bind(Include = "ID,Title,Duration,RatingIMDB,Trailer,MovieDescription,Budget,Income,DirectorID")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace MovieProject.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.DirectorID = new SelectList(db.Directors, "ID", "Name", movie.DirectorID);
             return View(movie);
         }
 
@@ -70,6 +73,7 @@ namespace MovieProject.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.DirectorID = new SelectList(db.Directors, "ID", "Name", movie.DirectorID);
             return View(movie);
         }
 
@@ -78,7 +82,7 @@ namespace MovieProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Director,ReleaseDate")] Movie movie)
+        public ActionResult Edit([Bind(Include = "ID,Title,Duration,RatingIMDB,Trailer,MovieDescription,Budget,Income,DirectorID")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace MovieProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.DirectorID = new SelectList(db.Directors, "ID", "Name", movie.DirectorID);
             return View(movie);
         }
 

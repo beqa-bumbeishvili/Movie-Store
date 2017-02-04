@@ -39,6 +39,5 @@ c:\users\user_beqa\documents\visual studio 2015\Projects\MovieProject\MovieProje
 c:\users\user_beqa\documents\visual studio 2015\Projects\MovieProject\MovieProject\bin\System.Web.WebPages.Razor.xml
 c:\users\user_beqa\documents\visual studio 2015\Projects\MovieProject\MovieProject\bin\Antlr3.Runtime.pdb
 c:\users\user_beqa\documents\visual studio 2015\Projects\MovieProject\MovieProject\bin\Newtonsoft.Json.xml
-c:\users\user_beqa\documents\visual studio 2015\Projects\MovieProject\MovieProject\obj\Debug\MovieProject.csprojResolveAssemblyReference.cache
 c:\users\user_beqa\documents\visual studio 2015\Projects\MovieProject\MovieProject\obj\Debug\MovieProject.dll
 c:\users\user_beqa\documents\visual studio 2015\Projects\MovieProject\MovieProject\obj\Debug\MovieProject.pdb
