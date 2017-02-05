@@ -20,6 +20,7 @@ namespace MovieProject.Controllers
             var AllMoviesAndCategories = new MovieCategoryViewModel();
             AllMoviesAndCategories.Genres = db.MovieCategories.ToList();
             AllMoviesAndCategories.Movies = db.Movies.ToList();
+
             return View(AllMoviesAndCategories);
         }
 
