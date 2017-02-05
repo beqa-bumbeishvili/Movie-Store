@@ -26,5 +26,22 @@ namespace MovieProject.Models
                 return true;
             return false;
         }
+
+        public bool EmailExistsInDatabase(string userEmail) {
+            MovieDBModel db = new MovieDBModel();
+            foreach (var mail in db.Users.Select(e => e.AccountEmail))
+                if (userEmail == mail)
+                    return true;
+            return false;
+        }
+
+        public bool PasswordExistsInDatabase(string userPassword)
+        {
+            MovieDBModel db = new MovieDBModel();
+            foreach (var password in db.Users.Select(e => e.AccountPassword))
+                if (userPassword == password)
+                    return true;
+            return false;
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿@model MovieProject.Models.MovieCategoryViewModel
+    @if (ViewBag.Registration == "unsuccessful") { <script>alert("registration failed"); </script>}
+
 <style>
     .navbar-fixed-top {
         display: none;
