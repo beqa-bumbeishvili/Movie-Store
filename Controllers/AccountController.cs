@@ -11,15 +11,14 @@ namespace MovieProject.Controllers
     {
         private MovieDBModel db = new MovieDBModel();
         private Helper helper = new Helper();
-        // GET: Account
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login([Bind(Include = "ID,AccountEmail,AccountPassword")] User user) {
+        public ActionResult Login([Bind(Include = "AccountEmail,AccountPassword")] User user)
+        {
             if (helper.EmailExistsInDatabase(user.AccountEmail) && helper.PasswordExistsInDatabase(user.AccountPassword))
             {
                 return View("~/Views/Movies/Index.cshtml");
@@ -29,7 +28,6 @@ namespace MovieProject.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Register([Bind(Include = "ID,AccountEmail,AccountPassword")] User user)
         {
             if (helper.IsValidEmail(user.AccountEmail) && helper.IsValidPassword(user.AccountPassword))
@@ -39,7 +37,7 @@ namespace MovieProject.Controllers
                 return View("~/Views/Movies/Index.cshtml");
             }
             ViewBag.Registration = "unsuccessful";
-            return View("~/Views/Movies/Index.cshtml");
+            return RedirectToAction("Index","Movies");
         }
     }
 }

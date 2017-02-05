@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!Doctype html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Content/loginform-style.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form" action="@Url.Action("Register", "Account")" method="post">
+                <input type="text" name="name" placeholder="name" />
+                <input type="text" name="AccountEmail" placeholder="email address" />
+                <input type="password" name="AccountPassword" placeholder="password" />
+                <button type="submit">create</button>
+                <p class="message">Already registered? <a href="#">Sign In</a></p>
+            </form>
+            <form class="login-form" action="@Url.Action("Login", "Account")" method="post">
+                <input type="text" name="AccountEmail" placeholder="email" />
+                <input type="password" name="AccountPassword" placeholder="password" />
+                <button type="submit">login</button>
+                <p class="message">Not registered? <a href="#">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="../Scripts/loginform-script.js"> </script>
+</body>
+</html>
