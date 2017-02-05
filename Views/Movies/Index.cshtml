@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<MovieProject.Models.Movie>
 
-@{
+@*@{
     ViewBag.Title = "Index";
 }
 
@@ -53,15 +53,14 @@
             @Html.DisplayFor(modelItem => item.RatingIMDB)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Trailer)
+           <a href="@Html.DisplayFor(modelItem => item.Trailer)" target="_blank">watch</a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MovieDescription)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Budget)
-        </td>
-        <td>
+        </td>        <td>
             @Html.DisplayFor(modelItem => item.Income)
         </td>
         <td>
@@ -72,4 +71,4 @@
     </tr>
 }
 
-</table>
+</table>*@

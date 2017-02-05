@@ -41,3 +41,4 @@ c:\users\user_beqa\documents\visual studio 2015\Projects\MovieProject\MovieProje
 c:\users\user_beqa\documents\visual studio 2015\Projects\MovieProject\MovieProject\bin\Newtonsoft.Json.xml
 c:\users\user_beqa\documents\visual studio 2015\Projects\MovieProject\MovieProject\obj\Debug\MovieProject.dll
 c:\users\user_beqa\documents\visual studio 2015\Projects\MovieProject\MovieProject\obj\Debug\MovieProject.pdb
+C:\Users\user_beqa\documents\visual studio 2015\Projects\MovieProject\MovieProject\obj\Debug\MovieProject.csprojResolveAssemblyReference.cache
