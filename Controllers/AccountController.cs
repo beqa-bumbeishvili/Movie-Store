@@ -17,24 +17,27 @@ namespace MovieProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login([Bind(Include = "AccountEmail,AccountPassword")] User user)
+        public ActionResult Login(string email,string password)
         {
-            if (helper.EmailExistsInDatabase(user.AccountEmail) && helper.PasswordExistsInDatabase(user.AccountPassword))
+            if (helper.EmailExistsInDatabase(email) && helper.PasswordExistsInDatabase(password))
             {
-                return View("~/Views/Movies/Index.cshtml");
+                return RedirectToAction("Index", "Movies");
             }
             ViewBag.Login = "unsuccessful";
-            return View("~/Views/Movies/Index.cshtml");
+            return RedirectToAction("Index", "Movies");
         }
 
         [HttpPost]
-        public ActionResult Register([Bind(Include = "ID,AccountEmail,AccountPassword")] User user)
+        public ActionResult Register(string name, string email, string password)
         {
-            if (helper.IsValidEmail(user.AccountEmail) && helper.IsValidPassword(user.AccountPassword))
+            if (helper.IsValidEmail(email) && helper.IsValidPassword(password))
             {
+                var user = new User();
+                user.AccountEmail = email;
+                user.AccountPassword = password;
                 db.Users.Add(user);
                 db.SaveChanges();
-                return View("~/Views/Movies/Index.cshtml");
+                return RedirectToAction("Index", "Movies");
             }
             ViewBag.Registration = "unsuccessful";
             return RedirectToAction("Index","Movies");

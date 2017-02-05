@@ -17,14 +17,14 @@
         <div class="form">
             <form class="register-form" action="@Url.Action("Register", "Account")" method="post">
                 <input type="text" name="name" placeholder="name" />
-                <input type="text" name="AccountEmail" placeholder="email address" />
-                <input type="password" name="AccountPassword" placeholder="password" />
+                <input type="text" name="email" placeholder="email address" />
+                <input type="password" name="password" placeholder="password" />
                 <button type="submit">create</button>
                 <p class="message">Already registered? <a href="#">Sign In</a></p>
             </form>
             <form class="login-form" action="@Url.Action("Login", "Account")" method="post">
-                <input type="text" name="AccountEmail" placeholder="email" />
-                <input type="password" name="AccountPassword" placeholder="password" />
+                <input type="text" name="email" placeholder="email" />
+                <input type="password" name="password" placeholder="password" />
                 <button type="submit">login</button>
                 <p class="message">Not registered? <a href="#">Create an account</a></p>
             </form>

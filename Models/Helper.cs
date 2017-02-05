@@ -43,5 +43,17 @@ namespace MovieProject.Models
                     return true;
             return false;
         }
+
+        public string PasswordHashAndSalt (string password)
+        {
+            var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
+            var buff = new byte[8];
+            rng.GetBytes(buff);
+            string salt = Convert.ToBase64String(buff);
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(password + salt);
+            System.Security.Cryptography.SHA256Managed hashstring = new System.Security.Cryptography.SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            return BitConverter.ToString(hash).Replace("-", string.Empty);             
+        }
     }
 }
