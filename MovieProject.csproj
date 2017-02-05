@@ -140,6 +140,7 @@
     <Compile Include="Models\MovieActorLink.cs" />
     <Compile Include="Models\MovieCategory.cs" />
     <Compile Include="Models\MovieCategoryLink.cs" />
+    <Compile Include="Models\MovieCategoryViewModel.cs" />
     <Compile Include="Models\MovieDBModel.cs" />
     <Compile Include="Models\MoviePicture.cs" />
     <Compile Include="Models\MoviePicturesLink.cs" />

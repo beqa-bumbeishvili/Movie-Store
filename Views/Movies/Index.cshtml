@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MovieProject.Models.Movie>
+﻿@model MovieProject.Models.MovieCategoryViewModel
 <style>
     .navbar-fixed-top {
         display: none;
@@ -12,26 +12,16 @@
             <h1><img src="../Content/Images/logo.gif" width="519" height="63" alt="Online Movie Store" /></h1>
             <div id="nav">
                 <a href="#">your account</a> | <a href="#">view cart</a> | <a href="#">help</a>
-            </div><!-- end nav -->
+            </div>
             <a href="#"><img src="../Content/Images/header_1.jpg" width="744" height="145" alt="Harry Potter cd" /></a>
             <a href="#"><img src="../Content/Images/header_2.jpg" width="744" height="48" alt="" /></a>
-        </div><!-- end header -->
+        </div>
         <dl id="browse">
             <dt>Full Category Lists</dt>
-            @*@foreach (var item in Model)*@
-            <dd class="first"><a href="#">Action &amp; Adventure</a></dd>
-            <dd><a href="#">Anime &amp; Manga</a></dd>
-            <dd><a href="#">Art House &amp; International</a></dd>
-            <dd><a href="#">Classics</a></dd>
-            <dd><a href="#">Comedy</a></dd>
-            <dd><a href="#">Cult Movies</a></dd>
-            <dd><a href="#">Drama</a></dd>
-            <dd><a href="#">New &amp; Future Releases</a></dd>
-            <dd><a href="#">Horror</a></dd>
-            <dd><a href="#">Musicals</a></dd>
-            <dd><a href="#">Mystery &amp; Suspense</a></dd>
-            <dd><a href="#">Science Fiction &amp; Fantasy</a></dd>
-            <dd class="last"><a href="#">Westerns</a></dd>
+            @foreach (var item in Model.Genres)
+            {
+                <dd><a href="#">@item.CategoryName</a></dd>
+            }
 
             <dt>Search Your Favourite Movie</dt>
             <dd class="searchform">
@@ -50,63 +40,71 @@
 
         <div id="body">
             <div class="inner">
+                @for (int i=0; i < Model.Movies.Count; i++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        <div class="leftbox">
+                            <h3>@Model.Movies[i].Title</h3>
+                            <img src="../Content/Images/photo_1.jpg" width="93" height="95" alt="photo 1" class="left" />
+                            <p><b>Price:</b> <b>$225.97</b> &amp; eligible for FREE Super Saver Shipping on orders over <b>$195</b>.</p>
+                            <p><b>Availability:</b> Usually ships within 24 hours</p>
+                            <p class="readmore"><a href="#">BUY <b>NOW</b></a></p>
+                            <div class="clear"></div>
+                        </div>
+                    }
+                    if (i % 2 == 1)
+                    {
+                        <div class="rightbox">
+                            <h3>@Model.Movies[i].Title</h3>
+                            <img src="../Content/Images/photo_1.jpg" width="107" height="91" alt="photo 4" class="left" />
+                            <p><b>Price:</b> <b>$125</b> &amp; eligible for FREE Super Saver Shipping on orders over <b>$105</b>.</p>
+                            <p><b>Availability:</b> Usually ships within 24 hours</p>
+                            <p class="readmore"><a href="#">BUY <b>NOW</b></a></p>
+                            <div class="clear"></div>
+                        </div>
 
-                <div class="leftbox">
-                    <h3>Star Wars Trilogy (Widescreen Edition)</h3>
-                    <img src="../Content/Images/photo_1.jpg" width="93" height="95" alt="photo 1" class="left" />
-                    <p><b>Price:</b> <b>$225.97</b> &amp; eligible for FREE Super Saver Shipping on orders over <b>$195</b>.</p>
-                    <p><b>Availability:</b> Usually ships within 24 hours</p>
-                    <p class="readmore"><a href="#">BUY <b>NOW</b></a></p>
-                    <div class="clear"></div>
-                </div>
-                <div class="rightbox">
-                    <h3>Batman - The Animated Series </h3>
-                    <img src="../Content/Images/photo_1.jpg" width="107" height="91" alt="photo 4" class="left" />
-                    <p><b>Price:</b> <b>$125</b> &amp; eligible for FREE Super Saver Shipping on orders over <b>$105</b>.</p>
-                    <p><b>Availability:</b> Usually ships within 24 hours</p>
-                    <p class="readmore"><a href="#">BUY <b>NOW</b></a></p>
-                    <div class="clear"></div>
-                </div>
+                        <div class="clear br"></div>
+                    }
+                }
 
-                <div class="clear br"></div>
+                @*<div class="leftbox">
+                        <h3>Harry Potter and the Prisoner of Azkaban  </h3>
+                        <img src="../Content/Images/photo_2.jpg" width="93" height="101" alt="photo 2" class="left" />
+                        <p><b>Price:</b> <b>$350</b> &amp; eligible for FREE Super Saver Shipping on orders over <b>$295</b>.</p>
+                        <p><b>Availability:</b> Usually ships within 24 hours</p>
+                        <p class="readmore"><a href="#">BUY <b>NOW</b></a></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="rightbox">
+                        <h3>Blade - Trinity (New Platinum Series)</h3>
+                        <img src="../Content/Images/photo_2.jpg" width="90" height="103" alt="photo 5" class="left" />
+                        <p><b>Price:</b> <b>$115</b> &amp; eligible for FREE Super Saver Shipping on orders over <b>$95</b>.</p>
+                        <p><b>Availability:</b> Usually ships within 24 hours</p>
+                        <p class="readmore"><a href="#">BUY <b>NOW</b></a></p>
+                        <div class="clear"></div>
+                    </div>
 
-                <div class="leftbox">
-                    <h3>Harry Potter and the Prisoner of Azkaban  </h3>
-                    <img src="../Content/Images/photo_2.jpg" width="93" height="101" alt="photo 2" class="left" />
-                    <p><b>Price:</b> <b>$350</b> &amp; eligible for FREE Super Saver Shipping on orders over <b>$295</b>.</p>
-                    <p><b>Availability:</b> Usually ships within 24 hours</p>
-                    <p class="readmore"><a href="#">BUY <b>NOW</b></a></p>
-                    <div class="clear"></div>
-                </div>
-                <div class="rightbox">
-                    <h3>Blade - Trinity (New Platinum Series)</h3>
-                    <img src="../Content/Images/photo_2.jpg" width="90" height="103" alt="photo 5" class="left" />
-                    <p><b>Price:</b> <b>$115</b> &amp; eligible for FREE Super Saver Shipping on orders over <b>$95</b>.</p>
-                    <p><b>Availability:</b> Usually ships within 24 hours</p>
-                    <p class="readmore"><a href="#">BUY <b>NOW</b></a></p>
-                    <div class="clear"></div>
-                </div>
+                    <div class="clear br"></div>
 
-                <div class="clear br"></div>
+                    <div class="leftbox">
+                        <h3>Million Dollar Baby (Widescreen Edition)</h3>
+                        <img src="../Content/Images/photo_3.jpg" width="106" height="100" alt="photo 3" class="left" />
+                        <p><b>Price:</b> <b>$105.97</b> &amp; eligible for FREE Super Saver Shipping on orders over <b>$99</b>.</p>
+                        <p><b>Availability:</b> Usually ships within 24 hours</p>
+                        <p class="readmore"><a href="#">BUY <b>NOW</b></a></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="rightbox">
+                        <h3>The Matrix Reloaded (Full Screen Edition)</h3>
+                        <img src="images/photo_3.jpg" width="91" height="99" alt="photo 6" class="left" />
+                        <p><b>Price:</b> <b>$75</b> &amp; eligible for FREE Super Saver Shipping on orders over <b>$55</b>.</p>
+                        <p><b>Availability:</b> Usually ships within 24 hours</p>
+                        <p class="readmore"><a href="http://www.freewebsitetemplates.com">BUY <b>NOW</b></a></p>
+                        <div class="clear"></div>
+                    </div>
 
-                <div class="leftbox">
-                    <h3>Million Dollar Baby (Widescreen Edition)</h3>
-                    <img src="../Content/Images/photo_3.jpg" width="106" height="100" alt="photo 3" class="left" />
-                    <p><b>Price:</b> <b>$105.97</b> &amp; eligible for FREE Super Saver Shipping on orders over <b>$99</b>.</p>
-                    <p><b>Availability:</b> Usually ships within 24 hours</p>
-                    <p class="readmore"><a href="#">BUY <b>NOW</b></a></p>
-                    <div class="clear"></div>
-                </div>
-                <div class="rightbox">
-                    <h3>The Matrix Reloaded (Full Screen Edition)</h3>
-                    <img src="images/photo_3.jpg" width="91" height="99" alt="photo 6" class="left" />
-                    <p><b>Price:</b> <b>$75</b> &amp; eligible for FREE Super Saver Shipping on orders over <b>$55</b>.</p>
-                    <p><b>Availability:</b> Usually ships within 24 hours</p>
-                    <p class="readmore"><a href="http://www.freewebsitetemplates.com">BUY <b>NOW</b></a></p>
-                    <div class="clear"></div>
-                </div>
-
-                <div class="clear"></div>
+                    <div class="clear"></div>*@
 
             </div>
         </div>
