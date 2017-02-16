@@ -17,10 +17,11 @@ namespace MovieProject.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            var AllMoviesAndCategories = new MovieCategoryViewModel();
-            AllMoviesAndCategories.Genres = db.MovieCategories.ToList();
-            AllMoviesAndCategories.Movies = db.Movies.ToList();
-            return View(AllMoviesAndCategories);
+            var MoviesFullInfo = new MovieCategoryViewModel();
+            MoviesFullInfo.Genres = db.MovieCategories.ToList();
+            MoviesFullInfo.Movies = db.Movies.ToList();
+            MoviesFullInfo.Pictures = db.MoviePictures.ToList();
+            return View(MoviesFullInfo);
         }
 
         // GET: Movies/Details/5

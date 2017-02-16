@@ -9,5 +9,7 @@ namespace MovieProject.Models
     {
         public List<Movie> Movies { get; set; }
         public List<MovieCategory> Genres { get; set; }
+
+        public List<MoviePicture> Pictures { get; set; }
     }
 }
