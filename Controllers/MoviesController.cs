@@ -7,6 +7,10 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MovieProject.Models;
+using System.Reflection;
+using System.Xml.Linq;
+using System.Diagnostics;
+using System.Linq.Expressions;
 
 namespace MovieProject.Controllers
 {
@@ -21,6 +25,40 @@ namespace MovieProject.Controllers
             MoviesFullInfo.Genres = db.MovieCategories.ToList();
             MoviesFullInfo.Movies = db.Movies.ToList();
             MoviesFullInfo.Pictures = db.MoviePictures.ToList();
+            MoviesFullInfo.Directors = db.Directors.ToList();
+
+
+            var query = from d in MoviesFullInfo.Directors
+                        join m in MoviesFullInfo.Movies
+                        on d.ID equals m.DirectorID
+                        select new
+                        {
+                            MovieName = m.Title,
+                            DirectorName = d.Name,
+                            DirectorLastname = d.Surname
+                        };
+
+
+            var ExtQuery = MoviesFullInfo.Directors.GroupJoin(
+                MoviesFullInfo.Movies, 
+                d => d.ID, 
+                m=> m.DirectorID,
+                (d,mo) => new
+                {
+                    Movies = mo,
+                    DirectorName = d.Name,
+                    DirectorLastname = d.Surname
+                });
+
+            int[] numbers = { 5};
+
+
+
+
+            var x = new List<int>();
+
+
+
             return View(MoviesFullInfo);
         }
 

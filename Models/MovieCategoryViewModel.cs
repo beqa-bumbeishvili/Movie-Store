@@ -11,5 +11,7 @@ namespace MovieProject.Models
         public List<MovieCategory> Genres { get; set; }
 
         public List<MoviePicture> Pictures { get; set; }
+
+        public List<Director> Directors { get; set; }
     }
 }
